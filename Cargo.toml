@@ -1,0 +1,25 @@
+[package]
+name = "del-rs"
+description = "The API Wrapper for Discord's unbiased list, giving bots and servers of all sizes a big chance!"
+version = "0.1.0"
+edition = "2021"
+keywords = [
+  "api",
+  "discord",
+  "discordbotlist",
+  "discordextremelist",
+]
+license = "Apache-2.0"
+repository = "https://github.com/OfficialSirH/del-rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.2", features = ["full"] }
+
+[lib]
+name = "del_rs"
+path = "src/lib.rs"
