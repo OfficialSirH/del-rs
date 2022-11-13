@@ -14,19 +14,10 @@ use crate::{
     submodels::APIPostStats,
 };
 
-#[derive(Debug)]
+#[derive(Default, Debug)]
 pub struct Del {
     pub token: String,
     pub id: String,
-}
-
-impl Default for Del {
-    fn default() -> Self {
-        Self {
-            token: String::new(),
-            id: String::new(),
-        }
-    }
 }
 
 impl Del {
@@ -66,7 +57,7 @@ impl Del {
                 format!("https://api.discordextremelist.xyz/v2{}", route),
             )
             .headers(headers)
-            .body(body.unwrap_or("".to_owned()))
+            .body(body.unwrap_or_else(|| "".to_owned()))
             .send()
             .await?;
 
